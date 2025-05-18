@@ -15,7 +15,13 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 // Set up CORS
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://yassine-front.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+  })
+);
 //API Routes
 app.use("/api", route);
 
